@@ -1,6 +1,6 @@
 # Sample Applications
 
-Provides sample applications for using the FORCAM FORCE Bridge API with PowerShell.
+Provides sample cmdlets for using the FORCAM FORCE Bridge API with PowerShell.
 If you have any questions look at https://ask.forcebridge.io/
 
 ### Useful Links
