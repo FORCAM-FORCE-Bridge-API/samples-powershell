@@ -1,3 +1,32 @@
+<#
+.SYNOPSIS
+Optain an  OAuth Access Token using the Client Credentials Flow
+
+.DESCRIPTION
+Before accessing the FORCE Bridge API an Access Token has to be requested.
+
+.PARAMETER uriForTokenGeneration
+URI for token generation
+
+.PARAMETER userName
+Username for accessing the FORCAM Force Bridge API
+
+.PARAMETER pword
+Password 
+
+.EXAMPLE
+Get-OAuthToken
+
+.EXAMPLE
+Get-OAuthToken -userName 'GitHub' -pword 'GitHub'
+
+.EXAMPLE
+Get-OAuthToken -uriForTokenGeneration 'https://virtualfactory.force.eco:24443/ffwebservices' -userName 'GitHub' -pword 'GitHub'
+
+.NOTES
+
+#>
+
 function Get-OAuthToken {
 	[CmdletBinding()]
 	param (
