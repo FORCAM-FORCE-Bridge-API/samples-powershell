@@ -14,3 +14,9 @@ If you have any questions look at https://ask.forcebridge.io/
 ###### Access to a FORCAM FORCE Bridge API System
 
 _If you need access to a demo system please contact forcebridge@forcam.com._
+
+# Authentication
+
+A cmdlet wich authenticates to a FORCAM FORCE Bridge API and prints out the token information.
+
+Folder: "src\Public"
