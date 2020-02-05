@@ -5,8 +5,8 @@ Optain an  OAuth Access Token using the Client Credentials Flow
 .DESCRIPTION
 Before accessing the FORCE Bridge API an Access Token has to be requested.
 
-.PARAMETER uriForTokenGeneration
-URI for token generation
+.PARAMETER uriToBridgeApi
+URI to Bridge API
 
 .PARAMETER userName
 Username for accessing the FORCAM Force Bridge API
@@ -21,7 +21,7 @@ Get-OAuthToken
 Get-OAuthToken -userName 'GitHub' -pword 'GitHub'
 
 .EXAMPLE
-Get-OAuthToken -uriForTokenGeneration 'https://virtualfactory.force.eco:24443/ffwebservices' -userName 'GitHub' -pword 'GitHub'
+Get-OAuthToken -uriToBridgeApi 'https://virtualfactory.force.eco:24443/ffwebservices' -userName 'GitHub' -pword 'GitHub'
 
 .NOTES
 
@@ -32,14 +32,14 @@ function Get-OAuthToken {
 	param (
 		[Parameter()]
 		[string]
-		$uriForTokenGeneration = 'https://virtualfactory.force.eco:24443/ffwebservices',
+		$uriToBridgeAPI = 'https://virtualfactory.force.eco:24443/ffwebservices',
 		[string]
 		$userName = 'GitHub',
 		[string]
 		$pword = 'GitHub'
 	)
 
-	$uriToBridgeApi = $uriForTokenGeneration + "/oauth/token"
+	$uriForTokenGeneration = $uriToBridgeAPI + "/oauth/token"
 
 	$ErrorActionPreference = "Stop"
 
@@ -55,7 +55,7 @@ function Get-OAuthToken {
 	$Body = "grant_type=client_credentials&scope=read" # To gain write access: &scope=write%20read
 
 	try {
-		$response = Invoke-RestMethod -Uri $uriToBridgeApi -Headers $Headers -Method Post -Body $Body
+		$response = Invoke-RestMethod -Uri $uriForTokenGeneration -Headers $Headers -Method Post -Body $Body
 	}
 	catch {
 		Write-Error $_ -ErrorAction Stop
